@@ -1,0 +1,7 @@
+{
+  "name": "Thirukanitha Horoscope Calculator",
+  "description": "A production-ready Vedic astrology calculator featuring high-precision Thirukanitha calculations, South/North Indian charts, Tamil language support, and PDF generation.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
