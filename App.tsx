@@ -29,7 +29,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 selection:bg-amber-100">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 selection:bg-red-100 selection:text-red-900">
       {!result ? (
         <HoroscopeForm onSubmit={handleCalculate} isLoading={loading} />
       ) : (
@@ -38,9 +38,9 @@ const App: React.FC = () => {
       
       {!result && (
         <div className="mt-16 text-center space-y-4 no-print">
-          <div className="text-3xl grayscale opacity-50">🔱</div>
-          <p className="text-slate-400 text-sm font-medium italic">"வெற்றிவேல் வீரவேல் - வேலும் மயிலும் துணை"</p>
-          <p className="text-slate-300 text-xs">© 2024 CosmicWisdom Astrology. Professional Thirukanitha Engine.</p>
+          <div className="text-3xl opacity-60 text-amber-600">🔱</div>
+          <p className="text-amber-800/60 text-sm font-medium italic">"வெற்றிவேல் வீரவேல் - வேலும் மயிலும் துணை"</p>
+          <p className="text-amber-900/40 text-xs">© 2024 CosmicWisdom Astrology. Professional Thirukanitha Engine.</p>
         </div>
       )}
     </div>

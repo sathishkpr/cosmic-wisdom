@@ -27,8 +27,8 @@ const SouthIndianChart: React.FC<SouthIndianChartProps> = ({ title, data, langua
 
   return (
     <div className="flex flex-col items-center">
-      <h3 className="text-lg font-bold mb-3 text-slate-700">{title}</h3>
-      <div className="grid grid-cols-4 grid-rows-4 w-full max-w-[400px] aspect-square border-2 border-slate-400 bg-white">
+      <h3 className="text-lg font-black mb-3 text-red-900 uppercase tracking-widest border-b-2 border-amber-300 pb-1">{title}</h3>
+      <div className="grid grid-cols-4 grid-rows-4 w-full max-w-[400px] aspect-square border-[3px] border-red-800 bg-[#fffdf5] shadow-xl shadow-amber-900/10">
         {Array.from({ length: 16 }).map((_, i) => {
           const row = Math.floor(i / 4);
           const col = i % 4;
@@ -42,11 +42,11 @@ const SouthIndianChart: React.FC<SouthIndianChartProps> = ({ title, data, langua
             const signLabel = language === Language.TAMIL ? SIGN_NAMES_TA[signIdx] : SIGN_NAMES_EN[signIdx];
             
             return (
-              <div key={i} className="border border-slate-300 p-1 flex flex-col relative overflow-hidden bg-slate-50/30">
-                <span className="text-[10px] text-slate-400 font-bold uppercase">{signLabel}</span>
+              <div key={i} className="border border-red-800/30 p-1 flex flex-col relative overflow-hidden bg-amber-50/20 hover:bg-amber-100/30 transition-colors">
+                <span className="text-[10px] text-red-900/60 font-bold uppercase tracking-wide">{signLabel}</span>
                 <div className="flex flex-wrap gap-1 mt-1 justify-center content-center flex-1">
                   {planets.map((p, pi) => (
-                    <span key={pi} className="text-xs font-bold text-indigo-700 bg-indigo-50 px-1 rounded border border-indigo-100">
+                    <span key={pi} className="text-xs font-bold text-red-900 bg-amber-100 px-1 rounded border border-amber-200">
                       {p}
                     </span>
                   ))}
@@ -58,9 +58,12 @@ const SouthIndianChart: React.FC<SouthIndianChartProps> = ({ title, data, langua
           // Center area
           if (row === 1 && col === 1) {
              return (
-               <div key={i} className="col-span-2 row-span-2 flex items-center justify-center p-4 bg-slate-100/50">
-                  <div className="text-center">
-                    <div className="text-indigo-600 font-bold text-sm tracking-wider opacity-30">THIRUKANITHA</div>
+               <div key={i} className="col-span-2 row-span-2 flex items-center justify-center p-4 bg-amber-50/50 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                    <span className="text-6xl text-red-900">🕉</span>
+                  </div>
+                  <div className="text-center relative z-10">
+                    <div className="text-red-900 font-bold text-sm tracking-[0.2em] opacity-80 border-t border-b border-red-900/20 py-1">THIRUKANITHA</div>
                   </div>
                </div>
              );
@@ -69,7 +72,7 @@ const SouthIndianChart: React.FC<SouthIndianChartProps> = ({ title, data, langua
           // These cells are swallowed by the col-span/row-span center
           if ((row === 1 || row === 2) && (col === 1 || col === 2)) return null;
 
-          return <div key={i} className="border border-slate-300"></div>;
+          return <div key={i} className="border border-red-800/30"></div>;
         })}
       </div>
     </div>
